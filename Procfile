@@ -1,1 +1,3 @@
-web: python manage.py runserver 0.0.0.0:5000
+web: gunicorn config.wsgi:application --log-file - --log-level debug
+python3 manage.py collectstatic --noinput
+python3 manage.py migrate
