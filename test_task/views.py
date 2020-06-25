@@ -33,7 +33,7 @@ class PostRetrieveView(RetrieveUpdateDestroyAPIView):
 
 class PostUpvoteView(APIView):
     """ Upvoting a given post, works only with logged users """
-    def post(self, request, pk):
+    def get(self, request, pk):
         post_item = Post.objects.get(id=pk)
         user_ups = User.objects.filter(users_upvotes=pk)
         current_user = request.user
