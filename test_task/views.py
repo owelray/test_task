@@ -80,7 +80,7 @@ class RegisterFormView(FormView):
 class LoginFormView(FormView):
     form_class = AuthenticationForm
     template_name = "login.html"
-    success_url = "/api/post"
+    success_url = "/api/posts"
 
     def form_valid(self, form):
         self.user = form.get_user()

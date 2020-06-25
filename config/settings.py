@@ -27,7 +27,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['https://oweltask.herokuapp.com/']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'test_task',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +74,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
 
 DATABASES = {
     'default': {
