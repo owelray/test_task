@@ -13,6 +13,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'reset_upvotes_every_midnight': {
         'task': 'test_task.upvotes_reset',
-        'schedule': crontab(),
+        'schedule': crontab(minute=0, hour=0),  # triggers daily at midnight
     },
 }
