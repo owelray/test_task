@@ -26,7 +26,7 @@ class PostRetrieveSerializer(serializers.ModelSerializer):
     """ Showing a post field from a tuple of the given post """
 
     upvotes = serializers.IntegerField(source="upvote.count", read_only=True)
-    comments = CommentSerializer(many=True)  # inserts a comments into the given post
+    comments = CommentSerializer(many=True, read_only=True)  # inserts a comments into the given post
 
     class Meta:
         model = Post
